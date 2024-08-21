@@ -109,18 +109,18 @@ STATUS_LIMIT = 4
 
 
 class MirrorStatus:
-    STATUS_UPLOADING = "Uploading"
-    STATUS_DOWNLOADING = "Downloading"
-    STATUS_CLONING = "Cloning"
-    STATUS_QUEUEDL = "DL queued"
-    STATUS_QUEUEUP = "UL queued"
-    STATUS_PAUSED = "Paused"
-    STATUS_ARCHIVING = "Archiving"
-    STATUS_EXTRACTING = "Extracting"
-    STATUS_SPLITTING = "Splitting"
-    STATUS_CHECKING = "CheckUp"
-    STATUS_SEEDING = "Seeding"
-    STATUS_PROCESSING = "Processing"
+    STATUS_UPLOADING   = "📤 Upload 📤"
+    STATUS_DOWNLOADING = "📥 Download 📥"
+    STATUS_CLONING     = "♻️ Clone"
+    STATUS_QUEUEDL     = "💤 QueueDL"
+    STATUS_QUEUEUP     = "💤 QueueUp"
+    STATUS_PAUSED      = "⛔️ Pause"
+    STATUS_ARCHIVING   = "🔐 Archive"
+    STATUS_EXTRACTING  = "📂 Extract"
+    STATUS_SPLITTING   = "✂️ Split"
+    STATUS_CHECKING    = "📝 CheckUp"
+    STATUS_SEEDING     = "🌧 Seed"
+    STATUS_PROCESSING  = "🛟Processing"
 
 
 class setInterval:
@@ -234,8 +234,8 @@ def progress_bar(pct):
         pct = float(pct.strip("%"))
     p = min(max(pct, 0), 100)
     cFull = int((p + 5) // 10)
-    p_str = "●" * cFull
-    p_str += "○" * (10 - cFull)
+    p_str = '◉' * cFull
+    p_str += '◎' * (10 - cFull)
     return p_str
 
 
@@ -248,8 +248,8 @@ def source(self):
 
 
 def get_readable_message():
-    msg = "<b>Powered by @TELLYCLOUD_BOTS</b>\n\n"
-    button = None
+    msg = f'<a href="https://t.me/TELLYCLOUD_Bots"><b>☬𝐓𝐄𝐋𝐋𝐘𝐂𝐋𝐎𝐔𝐃 𝐁𝐎𝐓𝐒™☬</b></a>'
+    msg += f'\n\n'
     tasks = len(download_dict)
     currentTime = get_readable_time(time() - botStartTime)
     if config_dict["BOT_MAX_TASKS"]:
