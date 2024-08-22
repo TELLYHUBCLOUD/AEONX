@@ -265,7 +265,7 @@ def get_readable_message():
      ]:
         msg += f"<b>📂 Filename :</b> {escape(f'{download.name()}')}\n"
         msg += f"<b>👤 Name :</b> {source(download)}\n\n"
-        msg += f"<b>{download.status()}...</b>"
+        msg += f"<b>{download.status()}</b>"
         if download.status() not in [
             MirrorStatus.STATUS_SPLITTING,
             MirrorStatus.STATUS_SEEDING,
@@ -287,8 +287,8 @@ def get_readable_message():
             msg += f"\n⌚ <code>Time     :</code> {download.seeding_time()}"
         else:
             msg += f"\n📐 <code>Size     :</code> {download.size()}"
-            msg += f"\n⏱ <code>Elapsed  :</code> {get_readable_time(time() - download.message.date.timestamp())}</blockquote>"
-            msg += f"\n<blockquote>❌  /stop_{download.gid()[:8]}</blockquote>\n\n"
+        msg += f"\n⏱ <code>Elapsed  :</code> {get_readable_time(time() - download.message.date.timestamp())}</blockquote>"
+        msg += f"\n<blockquote>❌  /stop_{download.gid()[:8]}</blockquote>\n\n"
     if len(msg) == 0:
         return None, None
     if tasks > STATUS_LIMIT:
@@ -297,9 +297,9 @@ def get_readable_message():
         buttons.callback(f"{PAGE_NO}/{PAGES}", "status ref")
         buttons.callback("Next", "status nex")
         button = buttons.column(3)
-        msg += f"<blockquote><b>🧮 Tasks</b>: {tasks}{bmax_task}"
-        msg += f"\n<b>🕛 <code>Bot Uptime</b>      :</code> {currentTime}"
-        msg += f"\n<b>🆓 <code>Free Disk Space</b> :</code> {get_readable_file_size(disk_usage('/usr/src/app/downloads/').free)}</blockquote>"
+    msg += f"<blockquote><b>🧮 Tasks</b>: {tasks}{bmax_task}"
+    msg += f"\n<b>🕛 <code>Bot Uptime</b>      :</code> {currentTime}"
+    msg += f"\n<b>🆓 <code>Free Disk Space</b> :</code> {get_readable_file_size(disk_usage('/usr/src/app/downloads/').free)}</blockquote>"
     return msg, button
 
 def text_to_bytes(size_text):
