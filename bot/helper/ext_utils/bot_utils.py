@@ -297,9 +297,7 @@ def get_readable_message():
         button = buttons.column(3)
     msg += f"<blockquote><b>🧮 Tasks</b>: {tasks}{bmax_task}"
     msg += f"\n<b>🕛 <code>Bot uptime</b>        :</code> {currentTime}"
-    msg += f"\n<b>🆓 <code>Free disk space</b>   :</code> {get_readable_file_size(disk_usage('/usr/src/app/downloads/').free)}"
-    msg += f"\n<b>🔼 <code>Uploading speed</b>   :</code> {get_readable_file_size(up_speed)}/s"
-    msg += f"\n<b>🔽 <code>Downloading speed</b> :</code> {get_readable_file_size(dl_speed)}/s</blockquote>"
+    msg += f"\n<b>🆓 <code>Free disk space</b>   :</code> {get_readable_file_size(disk_usage('/usr/src/app/downloads/').free)}</blockquote>"
     return msg, button
 
 def text_to_bytes(size_text):
