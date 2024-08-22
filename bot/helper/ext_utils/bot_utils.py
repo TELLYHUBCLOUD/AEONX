@@ -248,7 +248,7 @@ def source(self):
 
 
 def get_readable_message():
-    msg = f'<a href="https://t.me/TELLYCLOUD_Bots"><b>☬𝐓𝐄𝐋𝐋𝐘𝐂𝐋𝐎𝐔𝐃 𝐁𝐎𝐓𝐒™☬</b></a>\n'
+    msg = f'<a href="https://t.me/TELLYCLOUD_Bots"><b>☬𝐓𝐄𝐋𝐋𝐘𝐂𝐋𝐎𝐔𝐃 𝐁𝐎𝐓𝐒™☬</b></a>\n\n'
     button = None
     tasks = len(download_dict)
     currentTime = get_readable_time(time() - botStartTime)
@@ -265,7 +265,7 @@ def get_readable_message():
     ]:
         msg += f"<b>📂 Filename :</b> {escape(f'{download.name()}')}\n"
         msg += f"<b>👤 Name :</b> {source(download)}\n\n"
-        msg += f"<b>    {download.status()}...</b>"
+        msg += f"<b>{download.status()}...</b>"
         if download.status() not in [
             MirrorStatus.STATUS_SPLITTING,
             MirrorStatus.STATUS_SEEDING,
@@ -298,8 +298,8 @@ def get_readable_message():
         buttons.callback("Next", "status nex")
         button = buttons.column(3)
     msg += f"<blockquote><b>🧮 Tasks</b>: {tasks}{bmax_task}"
-    msg += f"\n<b>🕛 <code>Bot uptime</b>        :</code> {currentTime}"
-    msg += f"\n<b>🆓 <code>Free disk space</b>   :</code> {get_readable_file_size(disk_usage('/usr/src/app/downloads/').free)}</blockquote>"
+    msg += f"\n<b>🕛 <code>Bot Uptime</b>      :</code> {currentTime}"
+    msg += f"\n<b>🆓 <code>Free Disk Space</b> :</code> {get_readable_file_size(disk_usage('/usr/src/app/downloads/').free)}</blockquote>"
     return msg, button
 
 def text_to_bytes(size_text):
