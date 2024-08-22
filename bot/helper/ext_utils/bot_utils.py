@@ -263,8 +263,8 @@ def get_readable_message():
     for download in list(download_dict.values())[
         STATUS_START : STATUS_LIMIT + STATUS_START
     ]:
-        msg += f"<blockquote><b>📂 Filename   :</b> {escape(f'{download.name()}')}</blockquote>\n"
-        msg += f"<b>👤 Name         :</b> {source(download)}\n\n"
+        msg += f"<b>📂 Filename :</b> {escape(f'{download.name()}')}\n"
+        msg += f"<b>👤 Name :</b> {source(download)}\n\n"
         msg += f"<b>    {download.status()}...</b>"
         if download.status() not in [
             MirrorStatus.STATUS_SPLITTING,
